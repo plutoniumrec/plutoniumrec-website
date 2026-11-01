@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plutonium</title>
+<meta name="description" content="Plutonium: rooms, photos and players.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#" data-act="home" aria-label="Plutonium home"><img src="assets/logo-wordmark.png" alt="Plutonium"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#shop" class="hide-s">Shop</a>
+      <a href="#creator-hub">Creator Hub</a>
+    </nav>
+    <div class="spacer"></div>
+    <div class="actions">
+      <button class="icon-btn" id="search-btn" type="button" data-act="search" aria-label="Search" aria-expanded="false" aria-controls="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
+      <span id="auth"></span>
+      <a class="btn solid dl-btn" href="#get-plutonium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6M4 21h16"/></svg><span>Download</span></a>
+    </div>
+  </div>
+  <div class="sp" id="search" hidden>
+    <div class="sp-in">
+      <div class="subtabs" role="tablist" aria-label="Search for">
+        <button class="rtab" type="button" role="tab" data-act="stype" data-v="players" aria-selected="true">Players</button>
+        <button class="rtab" type="button" role="tab" data-act="stype" data-v="rooms" aria-selected="false">Rooms</button>
+      </div>
+      <label class="sr-only" for="search-q">Search</label>
+      <input id="search-q" type="search" autocomplete="off" placeholder="Search players">
+      <div class="sr-list" id="search-results"></div>
+    </div>
+  </div>
+</header>
+
+<div id="app"></div>
+
+<footer class="foot">
+  <div class="wrap"><span>&copy; Plutonium</span><span id="foot-note">Rooms, photos and the feed are presets.</span></div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <form class="dialog" id="login-form" role="dialog" aria-modal="true" aria-labelledby="login-title" novalidate>
+    <h2 id="login-title">Log in</h2>
+    <p class="sub" id="login-msg">Log in to Plutonium to cheer photos and leave comments.</p>
+    <label class="field" for="login-user">Username<input id="login-user" type="text" autocomplete="username" maxlength="20" placeholder="YourName"></label>
+    <label class="field" for="login-pass">Password<input id="login-pass" type="password" autocomplete="current-password" placeholder="At least 4 characters"></label>
+    <p class="err" id="login-err" role="alert"></p>
+    <div class="row">
+      <button class="btn" type="button" id="login-cancel">Cancel</button>
+      <button class="btn solid" type="submit">Log in</button>
+    </div>
+    <p class="sub" id="login-note">Preview login: any username and password works. Nothing leaves this page, and your password is never saved.</p>
+  </form>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
